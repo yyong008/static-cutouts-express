@@ -1,0 +1,8 @@
+{
+  "restartable": "rs",
+  "verbose": true,
+  "ignore": ["*.test.js", "fixtures/*", "node_modules"],
+  "watch": ["static/*", "views/*", "**/*.ts"],
+  "exec": "esno ./server/main.ts",
+  "ext": "ts ejs yml json mustache css"
+}
