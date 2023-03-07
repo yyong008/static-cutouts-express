@@ -1,4 +1,4 @@
-export const aboutData = {
+export default {
   title: "关于",
   links: [
     {

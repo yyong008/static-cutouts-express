@@ -1,4 +1,4 @@
-export const indexData = {
+export default {
   title: "页面首页",
   links: [
     {

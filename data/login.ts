@@ -1,4 +1,4 @@
-export const loginData = {
+export default {
   title: "登录",
   links: [
     {

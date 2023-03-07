@@ -3,12 +3,12 @@ import path from "node:path";
 import prettier from "prettier";
 import Mustache from "mustache";
 
-import { toAbsolutePath } from "./utils";
-import { indexData } from "./data/indexData";
+import { toAbsolutePath } from "./utils/utils";
+import indexData from "./data/index";
 
 async function render(url) {
   const tpl = await fs.readFileSync(
-    toAbsolutePath(`../views/${url}.mustache`),
+    toAbsolutePath(import.meta, `../views/${url}.mustache`),
     "utf-8"
   );
 
@@ -23,7 +23,7 @@ async function render(url) {
     return {
       ...prev,
       [cur]: fs.readFileSync(
-        toAbsolutePath(`../views/${cur}.mustache`),
+        toAbsolutePath(import.meta, `./views/${cur}.mustache`),
         "utf-8"
       ),
     };
@@ -38,7 +38,7 @@ async function render(url) {
 }
 
 const routes = fs
-  .readdirSync(toAbsolutePath("../views/"))
+  .readdirSync(toAbsolutePath(import.meta, "./views/"))
   .map((file) => {
     if (!/\.mustache$/.test(file)) return null;
 
